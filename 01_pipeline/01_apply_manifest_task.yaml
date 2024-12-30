@@ -13,6 +13,9 @@ spec:
   steps:
     - name: apply
       image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
       workingDir: /workspace/source
       command: ["/bin/bash", "-c"]
       args:
